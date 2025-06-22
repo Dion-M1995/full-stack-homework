@@ -2,6 +2,69 @@
 
 This technical assessment evaluates your proficiency in developing a modern full-stack web application using React, Next.js, and PostgreSQL. You will demonstrate your ability to create web application with database integration and efficient data handling.
 
+---
+
+## How to Run This Project
+
+This project requires Node.js, pnpm, and Docker to be installed on your system.
+
+1.  **Clone the Repository**
+
+    ```bash
+    git clone <repository-url>
+    cd full-stack-homework
+    ```
+
+2.  **Install Dependencies**
+
+    ```bash
+    pnpm install
+    ```
+
+3.  **Set Up Environment Variables**
+
+    Create a `.env` file in the root of the project by copying the example file:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    The default values in the `.env` file should work with the Docker setup below.
+
+4.  **Start the PostgreSQL Database**
+
+    Ensure Docker Desktop is running, then run the following command to start the database container:
+
+    ```bash
+    docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+    ```
+
+5.  **Set Up the Database Schema**
+
+    Run the setup script to create the necessary database and tables:
+
+    ```bash
+    pnpm run db:setup
+    ```
+
+6.  **Run the Development Server**
+
+    ```bash
+    pnpm dev
+    ```
+
+    The application should now be available at [http://localhost:3000](http://localhost:3000).
+
+7.  **Run Tests**
+
+    To run the unit and integration tests, use the following command:
+    
+    ```bash
+    pnpm test
+    ```
+
+---
+
 ## Project Overview
 
 You will build a web application that demonstrates your proficiency in:
@@ -85,15 +148,6 @@ Create a form with:
 - Input validation
 - Error boundary implementation
 
-## Getting Started
-
-1. Fork the repository
-2. Clone the forked repository to your local machine
-3. Install dependencies: `pnpm install`
-4. Start PostgreSQL: Use the Docker command above
-5. Run development server: pnpm dev
-6. Access the application: <http://localhost:3000>
-
 ## Submission Guidelines
 
 - Ensure all features are working
@@ -101,64 +155,3 @@ Create a form with:
 - Document any assumptions or decisions made during development
 - Push your code to your forked repository
 - Notify us once you have completed the assessment
-
----
-
-## How to Run This Project
-
-This project requires Node.js, pnpm, and Docker to be installed on your system.
-
-1.  **Clone the Repository**
-
-    ```bash
-    git clone <repository-url>
-    cd full-stack-homework
-    ```
-
-2.  **Install Dependencies**
-
-    ```bash
-    pnpm install
-    ```
-
-3.  **Set Up Environment Variables**
-
-    Create a `.env` file in the root of the project by copying the example file:
-
-    ```bash
-    cp .env.example .env
-    ```
-
-    The default values in the `.env` file should work with the Docker setup below.
-
-4.  **Start the PostgreSQL Database**
-
-    Ensure Docker Desktop is running, then run the following command to start the database container:
-
-    ```bash
-    docker run --name postgres -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
-    ```
-
-5.  **Set Up the Database Schema**
-
-    Run the setup script to create the necessary database and tables:
-
-    ```bash
-    pnpm run db:setup
-    ```
-
-6.  **Run the Development Server**
-
-    ```bash
-    pnpm dev
-    ```
-
-    The application should now be available at [http://localhost:3000](http://localhost:3000).
-
-7.  **Run Tests**
-
-    To run the unit and integration tests, use the following command:
-    
-    ```bash
-    pnpm test
-    ```
