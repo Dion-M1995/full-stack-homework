@@ -5,9 +5,13 @@ const createJestConfig = nextJest({
   dir: "./",
 });
 
-const customJestConfig: Config = {
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+const config: Config = {
+  coverageProvider: 'v8',
   testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/$1',
+  },
 };
 
-export default createJestConfig(customJestConfig);
+export default createJestConfig(config);
